@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import { Link } from "react-router-dom";
 
+
 function ImageSection(props){
     return (
         <div className='inline-flex w-0 md:w-1/2 lg:w-full '>
@@ -52,7 +53,7 @@ function Projects() {
             <h1 className='text-center text-custom-teal text-5xl mb-5'>Projects</h1>
         </div>
         <div className='flex flex-col w-full'>
-            <Project imageSide="left" link="/photography" alt={"Photography"} headline="Photography" imageName={"Birds.jpg"}/>
+            <Project imageSide="left" link={"photography"} alt={"Photography"} headline="Photography" imageName={"Birds.jpg"}/>
             <Project imageSide="right" link="/rhythm" alt={"Rhythm Game"} headline="Rhythm Game" imageName={"game_screenshot.png"}/>
         </div>
     </div>

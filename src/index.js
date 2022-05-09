@@ -7,6 +7,7 @@ import Projects from './pages/Projects';
 import PageNotFound from './pages/404';
 import reportWebVitals from './reportWebVitals';
 import Navbar from './components/Navbar';
+import Gallery from './pages/Gallery';
 
 const ROOT_PATH = "portfolio-react/";
 
@@ -17,7 +18,8 @@ root.render(
       <Navbar/>
       <Routes>
         <Route exact path={ROOT_PATH} element={<Home/>} />
-        <Route path={ROOT_PATH+'projects'} element={<Projects/>} />
+        <Route path={ROOT_PATH+'projects/'} element={<Projects/>} />
+        <Route path={ROOT_PATH+'projects/photography'} element={<Gallery/>} />
         <Route path={'*'} exact element={<PageNotFound/>} />
       </Routes>
     </BrowserRouter>
@@ -27,4 +29,4 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals(console.log);

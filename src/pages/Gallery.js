@@ -1,0 +1,40 @@
+import './App.css';
+import React from 'react';
+
+function getImages(context){
+    let images = [];
+    context.keys().map((item, index) => {
+        images[item.replace('./', '')] = context(item);
+    });
+    return images;
+}
+
+function Tile(props){
+    // hover:w-1/2 hover:h-fit
+    return (
+        <div className=' w-32 h-32 m-5 flex-2 hover:grow hover:h-fit ease-linear duration-300'>
+        <img 
+        className='object-cover w-full h-full rounded-tl-lg rounded-br-lg '
+        src={props.src}></img>
+    </div>
+    );
+}
+
+function Gallery() {
+    return (
+        <div >
+            <h1 className='text-center text-5xl text-custom-teal my-5'>Photography</h1>
+                <div className='flex flex-wrap w-3/4 h-fit mx-auto justify-center'>
+                    {
+                        require.context('../images/Gallery', false, /\.(png|jpe?g|JPG|svg)$/).keys().map((item, index) => {
+                            return (
+                                <Tile key={index} src={require("../images/Gallery"+String(item).substring(1))}/>
+                            );
+                        })
+                    }
+            </div>
+        </div>
+    );
+}
+
+export default Gallery;
