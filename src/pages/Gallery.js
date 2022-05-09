@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import CC from '../components/CC';
 
 function getImages(context){
     let images = [];
@@ -39,6 +40,7 @@ function Gallery() {
                         })
                     }
             </div>
+            <CC/>
         </div>
     );
 }
