@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import  {BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
-import App from './App';
+import Home from './pages/Home';
+import Projects from './pages/Projects';
+import PageNotFound from './pages/404';
 import reportWebVitals from './reportWebVitals';
+import Navbar from './components/Navbar';
+
+const ROOT_PATH = "portfolio-react/";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Navbar/>
+      <Routes>
+        <Route exact path={ROOT_PATH} element={<Home/>} />
+        <Route path={ROOT_PATH+'projects'} element={<Projects/>} />
+        <Route path={'*'} exact element={<PageNotFound/>} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
