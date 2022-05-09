@@ -12,10 +12,11 @@ function getImages(context){
 function Tile(props){
     // hover:w-1/2 hover:h-fit
     return (
-        <div className=' w-32 h-32 m-5 flex-2 hover:grow hover:h-fit ease-linear duration-300'>
-        <img 
+        <div className='max-w-md max-h-sm w-32 h-32 m-5 flex-2 hover:grow hover:h-fit ease-linear duration-300'>
+        <a href={props.fullResSrc}><img 
         className='object-cover w-full h-full rounded-tl-lg rounded-br-lg '
         src={props.src}></img>
+        </a>
     </div>
     );
 }
@@ -27,8 +28,13 @@ function Gallery() {
                 <div className='flex flex-wrap w-3/4 h-fit mx-auto justify-center'>
                     {
                         require.context('../images/Gallery', false, /\.(png|jpe?g|JPG|svg)$/).keys().map((item, index) => {
+                            let name = String(item).substring(1);
                             return (
-                                <Tile key={index} src={require("../images/Gallery"+String(item).substring(1))}/>
+                                <Tile 
+                                key={index} 
+                                src={require("../images/Gallery"+name)}
+                                fullResSrc={require("../images/FullSizeGallery"+name)}
+                                />
                             );
                         })
                     }
