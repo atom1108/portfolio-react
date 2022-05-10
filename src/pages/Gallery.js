@@ -13,7 +13,7 @@ function getImages(context){
 function Tile(props){
     // hover:w-1/2 hover:h-fit
     return (
-        <div className='max-w-md max-h-sm w-32 h-32 m-5 flex-2 hover:grow hover:h-fit ease-linear duration-300'>
+        <div className='max-w-md max-h-sm w-32 h-32 lg:m-5 md:m-3 sm:m-2 flex-2 hover:grow hover:h-fit ease-linear duration-300'>
         <a href={props.fullResSrc}><img 
         className='object-cover w-full h-full rounded-tl-lg rounded-br-lg '
         src={props.src}></img>
