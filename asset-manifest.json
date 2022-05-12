@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio-react/static/css/main.b5951392.css",
-    "main.js": "/portfolio-react/static/js/main.60fa2a23.js",
+    "main.css": "/portfolio-react/static/css/main.5d504ffc.css",
+    "main.js": "/portfolio-react/static/js/main.2f5db180.js",
     "static/js/787.aeca62f9.chunk.js": "/portfolio-react/static/js/787.aeca62f9.chunk.js",
     "static/media/1912.jpg": "/portfolio-react/static/media/1912.6deb2eb00ad6ae59a5b8.jpg",
     "static/media/9763.jpg": "/portfolio-react/static/media/9763.3086eb8f55e53513fcaf.jpg",
@@ -49,12 +49,12 @@
     "static/media/8022.jpg": "/portfolio-react/static/media/8022.d358fb26056cd90017cc.jpg",
     "static/media/game_screenshot.png": "/portfolio-react/static/media/game_screenshot.e477fe422d14df1930d9.png",
     "index.html": "/portfolio-react/index.html",
-    "main.b5951392.css.map": "/portfolio-react/static/css/main.b5951392.css.map",
-    "main.60fa2a23.js.map": "/portfolio-react/static/js/main.60fa2a23.js.map",
+    "main.5d504ffc.css.map": "/portfolio-react/static/css/main.5d504ffc.css.map",
+    "main.2f5db180.js.map": "/portfolio-react/static/js/main.2f5db180.js.map",
     "787.aeca62f9.chunk.js.map": "/portfolio-react/static/js/787.aeca62f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b5951392.css",
-    "static/js/main.60fa2a23.js"
+    "static/css/main.5d504ffc.css",
+    "static/js/main.2f5db180.js"
   ]
 }
