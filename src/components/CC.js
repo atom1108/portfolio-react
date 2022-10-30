@@ -9,9 +9,10 @@ function CC() {
         <a property="dct:title" 
         rel="cc:attributionURL" 
         href="https://atom1108.github.io/portfolio-react/">
-          Aidan Thompson's Portfolio of Works
-          </a> by 
-          <span property="cc:attributionName"> Aidan Thompson</span> is licensed under <a 
+          Aidan Thompson's Portfolio of Works 
+          </a> 
+          {/* by  */}
+          {/* <span property="cc:attributionName"> Aidan Thompson</span> */} is licensed under <a 
           href="http://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" 
             target="_blank" 
             rel="license noopener noreferrer" 

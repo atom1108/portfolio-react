@@ -1,7 +1,10 @@
 import './App.css';
 import React from 'react';
+import { useTitle } from '../hooks/UseTitle';
+
 
 function PageNotFound() {
+  useTitle("404");
   return (
     <div className='text-center'>
       <h1 className=' text-custom-teal text-5xl mb-5 font-bold'>404</h1>

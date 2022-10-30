@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import  {BrowserRouter, Routes, Route } from "react-router-dom";
+import  {HashRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
@@ -8,25 +8,50 @@ import PageNotFound from './pages/404';
 import reportWebVitals from './reportWebVitals';
 import Navbar from './components/Navbar';
 import Gallery from './pages/Gallery';
+import About from './pages/About';
+import Rhythm from './pages/Rhythm';
+import GA4React from "ga-4-react";
 
-const ROOT_PATH = "portfolio-react/";
+// OLD const ROOT_PATH = "portfolio-react/";
+const ga4react = new GA4React("G-9RTW1QE6CK");
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Navbar/>
-      <Routes>
-        <Route exact path={ROOT_PATH} element={<Home/>} />
-        <Route path={ROOT_PATH+'projects/'} element={<Projects/>} />
-        <Route path={ROOT_PATH+'projects/photography'} element={<Gallery/>} />
-        <Route path={'*'} exact element={<PageNotFound/>} />
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
-);
+
+(async _ => {
+  
+  await ga4react.initialize()
+  .then(res => console.log("Analytics Success."))
+  .catch(err => console.log("Analytics Failure."))
+  .finally(() => {
+    root.render(
+      <React.StrictMode>
+        <HashRouter>
+          <Navbar/>
+          <Routes>
+            <Route path="" element={<Home/>} />
+            <Route path='projects/' element={<Projects/>} />
+            <Route path='about/' element={<About/>} />
+            <Route path='projects/rhythm/' element={<Rhythm/>} />
+            <Route path='projects/photography' element={<Gallery/>} />
+            <Route path='*' element={<PageNotFound/>} />
+          </Routes>
+        </HashRouter>
+      </React.StrictMode>
+    );
+  });
+})();
+
+
+// try {
+//   setTimeout(_ => {
+//     const ga4react = new GA4React("G-9RTW1QE6CK");
+//     ga4react.initialize().catch(err => console.error(err));
+//   }, 4000);
+// } catch (err) {
+//       console.error(err);
+// }
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals(console.log);
+reportWebVitals();

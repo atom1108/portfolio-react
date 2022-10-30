@@ -1,9 +1,11 @@
 import './App.css';
 import React from 'react';
 import { Link } from "react-router-dom";
+import { useTitle } from '../hooks/UseTitle';
+
 
 const POHTOGRAPHY_TEXT = "Some photos I have taken with my Canon EOS 1100D. Mostly urban wildlife and plants, as they seem to be the most readily available subject on short notice."
-const GAME_TEXT = "A HTML5 rhythm game I made form scratch in JavaScript as a hobby project. All art was done myself, though the music is 'Run against the universe' by Komiku, and is in the public domain."
+const GAME_TEXT = "A HTML5 rhythm game I made form scratch in JavaScript as a hobby project. All art was done myself, though the music is 'Run against the universe' by Komiku, which is in the public domain."
 // https://commons.wikimedia.org/wiki/File:Komiku_-_07_-_Run_against_the_universe.ogg
 
 function ImageSection(props){
@@ -51,6 +53,7 @@ function Project(props){
 }
 
 function Projects() {
+  useTitle("Projects");
   return (
     <div>
         <div>
@@ -65,7 +68,7 @@ function Projects() {
             text={POHTOGRAPHY_TEXT}
             />
             <Project imageSide="right" 
-            link="/rhythm" 
+            link={"rhythm"} 
             alt={"Rhythm Game"} 
             headline="Rhythm Game" 
             imageName={"game_screenshot.png"}

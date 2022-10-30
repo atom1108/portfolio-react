@@ -1,8 +1,10 @@
 import './App.css';
 import React from 'react';
 import CC from '../components/CC';
+import { useTitle } from '../hooks/UseTitle';
 
 function Home() {
+  useTitle("Home");
   return (
     <div>
       <h1 className='text-center text-custom-teal text-5xl mb-5'>Hello :)</h1>

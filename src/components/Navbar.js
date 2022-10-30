@@ -25,8 +25,6 @@ export default function Navbar(){
     const aboutPageNav = ROOT_PATH+"about";
     const projectsPageNav = ROOT_PATH+"projects";
 
-    console.log(location.pathname);
-
     return(
         <div className="flex mt-3 mx-3 mb-5 pb-1 border-t-0 border-l-0 border-r-0 border-double border-4 border-slate-300 ">
             <div className=" w-full">

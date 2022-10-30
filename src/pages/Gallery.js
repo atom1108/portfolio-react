@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import CC from '../components/CC';
+import { useTitle } from '../hooks/UseTitle';
 
 function getImages(context){
     let images = [];
@@ -23,6 +24,7 @@ function Tile(props){
 }
 
 function Gallery() {
+    useTitle("Gallery");
     return (
         <div >
             <h1 className='text-center text-5xl text-custom-teal my-5'>Photography</h1>
