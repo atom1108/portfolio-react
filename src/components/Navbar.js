@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-const ROOT_PATH = "/portfolio-react/";
+const ROOT_PATH = "";
 
 function Navlink(props){
     if(props.avtivePage === props.link){
