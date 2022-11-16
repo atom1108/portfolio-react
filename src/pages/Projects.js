@@ -5,44 +5,47 @@ import { useTitle } from '../hooks/UseTitle';
 
 
 const POHTOGRAPHY_TEXT = "Some photos I have taken with my Canon EOS 1100D. Mostly urban wildlife and plants, as they seem to be the most readily available subject on short notice."
-const GAME_TEXT = "A HTML5 rhythm game I made form scratch in JavaScript as a hobby project. All art was done myself, though the music is 'Run against the universe' by Komiku, which is in the public domain."
+// const GAME_TEXT = "A HTML5 rhythm game I made form scratch in JavaScript as a hobby project. All art was done myself, though the music is 'Run against the universe' by Komiku, which is in the public domain."
 // https://commons.wikimedia.org/wiki/File:Komiku_-_07_-_Run_against_the_universe.ogg
+const WEBGL_GAME_TEXT = "A WebGL game made with Unity. Currently partially in development, and very broken."
 
+// The Section of the project rectangle contatining an image
 function ImageSection(props){
     return (
-        <div className='inline-flex w-0 md:w-1/2 lg:w-full '>
+        <div className='project_img '>
             <img src={require(`../images/${props.imageName}`)}
-            className="object-cover rounded-xl"
             alt={props.alt}
             />
         </div>
     );
 }
 
+// The Section of project rectangle containing text
 function TextSection(props){
     return (
-        <div className='px-5 py-5 w-full'>
-            <h1 className='text-custom-teal text-center text-xl mb-3'>{props.headline}</h1>
-            <p className='text-custom-tan'>{props.text}</p>
+        <div className='project_txt'>
+            <h1>{props.headline}</h1>
+            <p>{props.text}</p>
         </div>
     );
 }
 
+// The project rectangle containing an image and text
 function Project(props){
-    if(props.imageSide === "left"){
+    if(props.imageSide === "left"){ // If the image is on the left
         return(
-            <Link to={props.link}>
-                <div className='flex bg-[#40275D] rounded-lg w-2/3 h-96 mx-auto my-5 '>
+            <Link className='project-link' to={props.link}>
+                <div className='project'>
                     <ImageSection alt={props.alt} imageName={props.imageName}/>
                     <TextSection headline={props.headline} text={props.text}/>
                 </div>
             </Link>
         );    
     }
-    else{
+    else{ // If the image is on the right
         return(
-            <Link to={props.link}>
-                <div className='flex bg-[#40275D] rounded-lg w-2/3 h-96 mx-auto my-5'>
+            <Link className='project-link' to={props.link}>
+                <div className='project'>
                     <TextSection headline={props.headline} text={props.text}/>
                     <ImageSection alt={props.alt} imageName={props.imageName}/>
                 </div>
@@ -57,9 +60,9 @@ function Projects() {
   return (
     <div>
         <div>
-            <h1 className='text-center text-custom-teal text-5xl mb-5'>Projects</h1>
+            <h1>Projects</h1>
         </div>
-        <div className='flex flex-col w-full'>
+        <div className='full-w-flex-col'>
             <Project imageSide="left" 
             link={"photography"} 
             alt={"Photography"} 
@@ -67,12 +70,19 @@ function Projects() {
             imageName={"Birds.jpg"}
             text={POHTOGRAPHY_TEXT}
             />
-            <Project imageSide="right" 
+            {/* <Project imageSide="right" 
             link={"rhythm"} 
             alt={"Rhythm Game"} 
             headline="Rhythm Game" 
             imageName={"game_screenshot.png"}
             text={GAME_TEXT}
+            /> */}
+            <Project imageSide="right" 
+            link={"topdown"} 
+            alt={"WebGL Game"} 
+            headline="WebGL Game" 
+            imageName={"topdown_SC.png"}
+            text={WEBGL_GAME_TEXT}
             />
         </div>
     </div>

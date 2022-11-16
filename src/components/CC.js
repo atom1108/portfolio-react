@@ -2,7 +2,7 @@ import React from 'react';
 
 function CC() {
   return (
-    <div className='flex flex-inline text-custom-tan justify-center w-full my-5'>
+    <div className='cc'>
       <p 
       {...{'xmlns:cc':"http://creativecommons.org/ns#"} }
      {...{ 'xmlns:dct':"http://purl.org/dc/terms/"}}>
@@ -12,25 +12,19 @@ function CC() {
           Aidan Thompson's Portfolio of Works 
           </a> 
           {/* by  */}
-          {/* <span property="cc:attributionName"> Aidan Thompson</span> */} is licensed under <a 
+          {/* <span property="cc:attributionName"> Aidan Thompson</span> */} is licensed under 
+          <a 
           href="http://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" 
-            target="_blank" 
-            rel="license noopener noreferrer" 
-            className='inline-flex justify-center'> CC BY-NC 4.0
+          target="_blank" 
+          rel="license noopener noreferrer" 
+          className='cc-link'> CC BY-NC 4.0
             <img 
-            className='h-[22px] ml-3'
-                //  style={{"height:22px!important;margin-left:3px;vertical-align:text-bottom;"}} 
             src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"/>
-              <img 
-            //   style={{"height:22px!important;margin-left:3px;vertical-align:text-bottom;"}}
-                 className='h-[22px] ml-3'
-                 src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"/>
-                 <img
-                 className='h-[22px] ml-3'
-                //   style={{"height":"22px!important", "margin-left" : "3px", "vertical-align:text-bottom;"}}
-                  src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"/>
-
-      </a>
+            <img 
+              src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"/>
+            <img
+              src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"/>
+          </a>
       </p>
       </div>
   );

@@ -10,46 +10,60 @@ import Navbar from './components/Navbar';
 import Gallery from './pages/Gallery';
 import About from './pages/About';
 import Rhythm from './pages/Rhythm';
-import GA4React from "ga-4-react";
-
-// OLD const ROOT_PATH = "portfolio-react/";
-const ga4react = new GA4React("G-9RTW1QE6CK");
+import Topdown from './pages/Topdown';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-(async _ => {
+/// WITHOUT GOOGLE ANALYTICS ///
+
+root.render(
+  <React.StrictMode>
+    <HashRouter>
+      <Navbar/>
+      <main>
+        <Routes>
+          <Route path="" element={<Home/>} />
+          <Route path='projects/' element={<Projects/>} />
+          <Route path='about/' element={<About/>} />
+          <Route path='projects/rhythm/' element={<Rhythm/>} />
+          <Route path='projects/topdown/' element={<Topdown/>} />
+          <Route path='projects/photography' element={<Gallery/>} />
+          <Route path='*' element={<PageNotFound/>} />
+        </Routes>
+      </main>
+    </HashRouter>
+  </React.StrictMode>
+);
+
+
+/// WITH GOOGLE ANALYTICS ///
+// import GA4React from "ga-4-react";
+// OLD const ROOT_PATH = "portfolio-react/";
+// const ga4react = new GA4React("G-9RTW1QE6CK");
+// (async _ => {
   
-  await ga4react.initialize()
-  .then(res => console.log("Analytics Success."))
-  .catch(err => console.log("Analytics Failure."))
-  .finally(() => {
-    root.render(
-      <React.StrictMode>
-        <HashRouter>
-          <Navbar/>
-          <Routes>
-            <Route path="" element={<Home/>} />
-            <Route path='projects/' element={<Projects/>} />
-            <Route path='about/' element={<About/>} />
-            <Route path='projects/rhythm/' element={<Rhythm/>} />
-            <Route path='projects/photography' element={<Gallery/>} />
-            <Route path='*' element={<PageNotFound/>} />
-          </Routes>
-        </HashRouter>
-      </React.StrictMode>
-    );
-  });
-})();
-
-
-// try {
-//   setTimeout(_ => {
-//     const ga4react = new GA4React("G-9RTW1QE6CK");
-//     ga4react.initialize().catch(err => console.error(err));
-//   }, 4000);
-// } catch (err) {
-//       console.error(err);
-// }
+//   await ga4react.initialize()
+//   .then(res => console.log("Analytics Success."))
+//   .catch(err => console.log("Analytics Failure."))
+//   .finally(() => {
+//     root.render(
+//       <React.StrictMode>
+//         <HashRouter>
+//           <Navbar/>
+//           <Routes>
+//             <Route path="" element={<Home/>} />
+//             <Route path='projects/' element={<Projects/>} />
+//             <Route path='about/' element={<About/>} />
+//             <Route path='projects/rhythm/' element={<Rhythm/>} />
+//             <Route path='projects/topdown/' element={<Topdown/>} />
+//             <Route path='projects/photography' element={<Gallery/>} />
+//             <Route path='*' element={<PageNotFound/>} />
+//           </Routes>
+//         </HashRouter>
+//       </React.StrictMode>
+//     );
+//   });
+// })();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

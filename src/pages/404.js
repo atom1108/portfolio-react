@@ -6,10 +6,10 @@ import { useTitle } from '../hooks/UseTitle';
 function PageNotFound() {
   useTitle("404");
   return (
-    <div className='text-center'>
-      <h1 className=' text-custom-teal text-5xl mb-5 font-bold'>404</h1>
-      <p className='text-custom-tan text-xl my-5'>Page not Found</p>
-      <p className='text-custom-tan'>Either I haven't gotten around to finishing this part, or you did something weird</p>
+    <div className='page-not-found'>
+      <h1>404</h1>
+      <h2>Page not Found</h2>
+      <p>Either I haven't gotten around to finishing this part, or you did something weird</p>
     </div>
   );
 }

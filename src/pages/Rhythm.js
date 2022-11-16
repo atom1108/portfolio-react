@@ -1,5 +1,4 @@
 import './App.css';
-import React, { useEffect } from 'react';
 import { useTitle } from '../hooks/UseTitle';
 
 function Rhythm() {
