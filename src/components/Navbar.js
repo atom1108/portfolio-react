@@ -3,24 +3,25 @@ import { Link, useLocation } from "react-router-dom";
 
 const ROOT_PATH = "/";
 
-// REturns styled <Link> as navbar component
+// Returns styled <Link> as navbar component
 function Navlink(props){
     if(props.avtivePage === props.link){
         return( // If the link is active
             <Link to={props.link}><li 
-            className="navbox active_navbox"
+            className="navbox active_navbox neon-text-white neon-border-white"
             >{props.text}</li></Link>
         );
     }
     else{ // If NOT active link
         return( 
             <Link to={props.link}><li 
-            className="navbox"
+            className="navbox neon-text-white"
             >{props.text}</li></Link>
         );
     }
 }
 
+// TODO: on small window, hamburger menu with sidebar
 export default function Navbar(){
     const location = useLocation();
 

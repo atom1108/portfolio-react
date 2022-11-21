@@ -24,7 +24,7 @@ function ImageSection(props){
 function TextSection(props){
     return (
         <div className='project_txt'>
-            <h1>{props.headline}</h1>
+            <h3>{props.headline}</h3>
             <p>{props.text}</p>
         </div>
     );

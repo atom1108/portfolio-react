@@ -9,8 +9,8 @@ import { useTitle } from '../hooks/UseTitle';
 function Tile(props){
     return (
         <div className=' gallery_tile '>
-        <a href={props.fullResSrc}><img 
-        src={props.src}></img>
+        <a href={props.fullResSrc} target="_blank" rel="noreferrer"><img 
+        src={props.src} alt="" />
         </a>
     </div>
     );
@@ -89,10 +89,10 @@ function Card(props){
     return(
         <div 
         data-status={props.status} // Whether it is active, left, right, or unknown
-        data-index={props.key} // THe position of the card in the stack on initialisation
-        className='card'>
-            <a href={props.fullResSrc} target="_blank">
-                <img src={props.src} />
+        data-index={props.index} // THe position of the card in the stack on initialisation
+        className='photo-card'>
+            <a href={props.fullResSrc} target="_blank" rel="noreferrer">
+                <img src={props.src}  alt=""/>
             </a>
         </div>
     );
@@ -100,7 +100,7 @@ function Card(props){
 
 function DisplayCards(){
     return(
-        <div className='cards-container'>
+        <div className='photo-cards-container'>
              {
                 // Get all images in location and create Cards from them
                 require.context('../images/Gallery', false, /\.(png|jpe?g|JPG|svg)$/).keys().map((item, index) => {
@@ -111,6 +111,7 @@ function DisplayCards(){
                         activeIndex = index;
                         return (
                             <Card 
+                            index={index}
                             key={index}
                             status="active"
                             src={require("../images/Gallery"+name)}
@@ -123,6 +124,7 @@ function DisplayCards(){
                         <Card 
                         status="unknown"
                         key={index}
+                        index={index}
                         src={require("../images/Gallery"+name)}
                         fullResSrc={require("../images/FullSizeGallery"+name)}
                         />
@@ -130,7 +132,7 @@ function DisplayCards(){
                 })
             }
             {/* Buttons handling card changing */}
-            <div className='cards-btn-container'>
+            <div className='photo-cards-btn-container'>
                 <button onClick={HandleCardButtons} value={"left"}>&#8612;</button>
                 <button onClick={HandleCardButtons} value={"right"}>&#8614;</button>
             </div>
@@ -167,12 +169,25 @@ function Gallery() {
 
     // Default option, gallery. Shows all images at once
     if (displayMethod === 1){
-        display = <DisplayGallery/>
+        return (
+            <div >
+                <h1>Photography</h1>
+                <DisplaySelector/>
+                <DisplayGallery/>
+                <CC/>
+            </div>
+        );
     }
     // Cards display, shows one at a time with swap buttons
     else if (displayMethod === 2){
-        console.log("Cards");
-        display = <DisplayCards/>
+        return (
+            <div >
+                <h1>Photography</h1>
+                <DisplaySelector/>
+                <DisplayCards/>
+                <CC/>
+            </div>
+        );
     }
     else{
         display = null;
