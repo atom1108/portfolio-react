@@ -2,7 +2,7 @@ import React from 'react';
 
 function CC() {
   return (
-    <footer className='cc'>
+    <div className='cc'>
       <p 
       {...{'xmlns:cc':"http://creativecommons.org/ns#"} }
      {...{ 'xmlns:dct':"http://purl.org/dc/terms/"}}>
@@ -12,12 +12,12 @@ function CC() {
           Aidan Thompson's Portfolio of Works 
           </a> 
           {/* by  */}
-          {/* <span property="cc:attributionName"> Aidan Thompson</span> */} is licensed under 
+          {/* <span property="cc:attributionName"> Aidan Thompson</span> */} is licensed under &nbsp;
           <a 
           href="http://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" 
           target="_blank" 
           rel="license noopener noreferrer" 
-          className='cc-link'> CC BY-NC 4.0
+          className='cc-link'>CC BY-NC 4.0
             <img alt=""
             src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"/>
             <img alt=""
@@ -26,7 +26,7 @@ function CC() {
               src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"/>
           </a>
       </p>
-      </footer>
+      </div>
   );
 }
 

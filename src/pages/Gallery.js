@@ -1,6 +1,5 @@
 import './App.css';
 import {React, useState } from 'react';
-import CC from '../components/CC';
 import { useTitle } from '../hooks/UseTitle';
 
 
@@ -8,7 +7,7 @@ import { useTitle } from '../hooks/UseTitle';
 //#region GALLERY VIEW
 function Tile(props){
     return (
-        <div className=' gallery_tile '>
+        <div className='gallery_tile'>
         <a href={props.fullResSrc} target="_blank" rel="noreferrer"><img 
         src={props.src} alt="" />
         </a>
@@ -18,7 +17,7 @@ function Tile(props){
 
 function DisplayGallery(){
     return(
-        <div className='gallery_container'>
+        <div className='gallery_container neon-border-teal'>
             {
                 // Get all images in location and create Tiles from them
                 require.context('../images/Gallery', false, /\.(png|jpe?g|JPG|svg)$/).keys().map((item, index) => {
@@ -90,7 +89,7 @@ function Card(props){
         <div 
         data-status={props.status} // Whether it is active, left, right, or unknown
         data-index={props.index} // THe position of the card in the stack on initialisation
-        className='photo-card'>
+        className='photo-card neon-border-teal'>
             <a href={props.fullResSrc} target="_blank" rel="noreferrer">
                 <img src={props.src}  alt=""/>
             </a>
@@ -133,8 +132,8 @@ function DisplayCards(){
             }
             {/* Buttons handling card changing */}
             <div className='photo-cards-btn-container'>
-                <button onClick={HandleCardButtons} value={"left"}>&#8612;</button>
-                <button onClick={HandleCardButtons} value={"right"}>&#8614;</button>
+                <button className='neon-border-white neon-text-white' onClick={HandleCardButtons} value={"left"}>&#8612;</button>
+                <button className='neon-border-white neon-text-white' onClick={HandleCardButtons} value={"right"}>&#8614;</button>
             </div>
         </div>
     );
@@ -152,21 +151,24 @@ function Gallery() {
         setDisplayMethod(Number(e.target.value));
     }
 
+    // Toggles display:block class for content on button click
+    function HandleDropdown(e){
+        e.target.parentNode.children[1].classList.toggle("show-dropdown");
+    }
+
     // Dropdown box for display method
     function DisplaySelector(){
         return(
-            <div className='select-center-container'>
-                <select value={displayMethod} onChange={HandleChange}>
-                    <option value={1}>Gallery</option>
-                    <option value={2}>Cards</option>
-                    {/* <option value={3}>Op3</option> */}
-                </select>
+            <div className="dropdown">
+                <button className="dropbtn" onClick={HandleDropdown}>View Options</button>
+                <div className="dropdown-content neon-border-purple">
+                    <button value={1} onClick={HandleChange}>Gallery</button>
+                    <button value={2} onClick={HandleChange}>Cards</button>
+                </div>
             </div>
         );
     }
     
-    let display; // The display to use
-
     // Default option, gallery. Shows all images at once
     if (displayMethod === 1){
         return (
@@ -174,7 +176,6 @@ function Gallery() {
                 <h1>Photography</h1>
                 <DisplaySelector/>
                 <DisplayGallery/>
-                <CC/>
             </div>
         );
     }
@@ -185,22 +186,9 @@ function Gallery() {
                 <h1>Photography</h1>
                 <DisplaySelector/>
                 <DisplayCards/>
-                <CC/>
-            </div>
+             </div>
         );
     }
-    else{
-        display = null;
-    }
-
-    return (
-        <div >
-            <h1>Photography</h1>
-            <DisplaySelector/>
-            {display}
-            <CC/>
-        </div>
-    );
 }
 
 export default Gallery;

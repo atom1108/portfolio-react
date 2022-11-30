@@ -11,6 +11,7 @@ import Gallery from './pages/Gallery';
 import About from './pages/About';
 import Rhythm from './pages/Rhythm';
 import Topdown from './pages/Topdown';
+import Footer from './components/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -31,6 +32,7 @@ root.render(
           <Route path='*' element={<PageNotFound/>} />
         </Routes>
       </main>
+      <Footer/>
     </HashRouter>
   </React.StrictMode>
 );

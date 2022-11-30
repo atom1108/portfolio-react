@@ -1,33 +1,54 @@
 import './App.css';
 import React from 'react';
 import { Link } from "react-router-dom";
-import CC from '../components/CC';
 import { useTitle } from '../hooks/UseTitle';
+
+
+function NavCard(props){
+  return(
+    <Link className='hp-card neon-border-purple' to={props.link}>
+      <h4 className='neon-text-white'>{props.text}</h4>
+      <img alt='Website Logo' src={require(`../images/DarkMode_WebPortfolioLogo512.png`)}></img>
+    </Link>
+  );
+}
+
 
 function Home() {
   useTitle("Home");
 
-  return (
-    <div>
-      {/* <h1>Yet Another Thompson</h1> */}
-      {/* <h1>Hello :)</h1> */}
-      {/* <h2>Welcome to my portfolio</h2> */}
-      {/* <h2 className='WIP_text'>WORK IN PROGRESS</h2> */}
-      <div className='hp-card-container'>
-        <div className='hp-card-group'>
-          <Link className='hp-card neon-border-purple' to={"projects"}>
-            <div><h4 className='neon-text-white'>All Projects</h4></div>
-          </Link>
-          <Link className='hp-card neon-border-purple' to={"projects"}>
-            <div><h4 className='neon-text-white'>Photography</h4></div>
-          </Link>
-          <Link className='hp-card neon-border-purple' to={"about"}>
-            <div><h4 className='neon-text-white'>About</h4></div>
-          </Link>
+  // Check if user is mobile or not
+  var isTouchScreen = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+
+
+  if(isTouchScreen === true){
+    console.log("TOUCH SCREEN");
+    return(
+      <div>
+        <h2 className='WIP_text'>WORK IN PROGRESS</h2>
+        <div className='mobile-hp-card-container'>
+          <div className='mobile-hp-card-group'>
+            <NavCard text="All Projects" link="projects"/>
+            <NavCard text="Photography" link="projects/photography"/>
+            <NavCard text="About" link="about"/>
+          </div>
         </div>
       </div>
-      <CC/>
+    );
+  }
+
+  // Is NOT touchscreen
+  return (
+    <div>
+      <h2 className='WIP_text'>WORK IN PROGRESS</h2>
+      <div className='hp-card-container'>
+        <div className='hp-card-group'>
+          <NavCard text="All Projects" link="projects"/>
+          <NavCard text="Photography" link="projects/photography"/>
+          <NavCard text="About" link="about"/>
+        </div>
       </div>
+    </div>
   );
 }
 

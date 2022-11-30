@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-import CC from '../components/CC';
 import { useTitle } from '../hooks/UseTitle';
 
 function About() {
@@ -8,6 +7,7 @@ function About() {
   return (
     <div className='mx-10'>
       <h1>About</h1>
+      <img className='about-img' alt='Website Logo' src={require(`../images/DarkMode_WebPortfolioLogo512.png`)}></img>
       <p>This is the "portfolio" of Aidan Thompson (nice to meet you). 
       It was made from scratch with React as a procrastination project to escape from University work, and I decided to share some hobbies and previous works here. 
       <br/>
@@ -15,7 +15,6 @@ function About() {
       <br/>
       Cheers for making this free, GitHub.
       </p>
-      <CC/>
       </div>
   );
 }
