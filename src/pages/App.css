@@ -5,6 +5,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400&display=swap');
 
+/* TODOs
+Light Mode Colours
+Skills Page
+*/
+
 /* || Custom Colours:
 Teal: #17857E
 Tan:  #cca87f
@@ -54,8 +59,8 @@ h1{
 }
 
 h2{
-  color: var(--custom-tan-colour);
-  font-size: 1.25rem;
+  color: var(--custom-light-grey-colour);
+  font-size: 1.5rem;
   line-height: 1.75rem;
 }
 
@@ -229,11 +234,6 @@ p{
 .dropdown-content button:hover {
   background-color: var(--custom-blue-colour);
 }
-
-/* .dropdown:hover .dropdown-content {
-  display: block;
-} */
-
 
 .dropdown-content button:focus{
   background-color: var(--custom-blue-colour);
@@ -440,6 +440,7 @@ nav{
 }
 .project{
   display: flex;
+  flex-direction: row;
   background-color: var(--custom-dark-purp-colour);
   border-radius: 0.5rem;
   height: 24rem;
@@ -447,6 +448,11 @@ nav{
               0 0 .2rem white,
               0 0 2rem var(--custom-purp-colour);
   transition-duration: 500ms;
+}
+
+
+.project[imageside="right"]{
+  flex-direction: row-reverse;
 }
 
 .project:hover{
@@ -600,7 +606,6 @@ nav{
 
 /*#region || ABOUT */
 .about-img{
-
   margin:auto;
   width: 15rem;
   height: 15rem;
@@ -610,7 +615,6 @@ nav{
 
 
 /*#region || PAGE NOT FOUND */
-
 .page-not-found h1{
   margin-bottom: 1.25rem;
   font-weight: bold;
@@ -658,6 +662,54 @@ footer{
   margin-right: auto;
 }
 /* #endregion */
+
+
+/*#region || SKILLS PAGE */
+.collapsible-article{
+  position: relative;
+  max-width: 50rem;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4rem;
+  border-radius: 1rem;
+  padding-bottom: 5rem;
+  padding-top: 0.5rem;
+}
+
+.collapsible-content{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-duration: 1000ms;
+  max-height: 230px;
+  padding-bottom: 3rem;
+  overflow: hidden;
+}
+
+.collapsible-content > div{
+  margin: auto;
+  margin-top: 3rem;
+  width: 10rem;
+  height: 10rem;
+}
+
+.collapsible-article button{
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  border-top: var(--custom-light-grey-colour) solid;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 0.5rem;
+  display: block;
+}
+
+.collapsible-expand{
+  max-height: 900px;
+}
+
+/*#endregion */
 
 
 /*#region || VERY SMALL SCREEN */
@@ -710,6 +762,7 @@ footer{
     margin-left: auto;
   }
 
+
 }
 /* #endregion */
 
@@ -757,6 +810,15 @@ footer{
     width: 95%;
     margin: none;
   }
+
+  /* ||^ COLLAPSIBLE */
+  .collapsible-content{
+    grid-template-columns: auto auto;
+  }
+
+  /* .collapsible-expand{
+    height: 680px;
+  } */
 
 }
 /* #endregion */

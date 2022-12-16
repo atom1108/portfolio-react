@@ -9,9 +9,11 @@ import reportWebVitals from './reportWebVitals';
 import Navbar from './components/Navbar';
 import Gallery from './pages/Gallery';
 import About from './pages/About';
+import SkillsPage from './pages/Skills';
 import Rhythm from './pages/Rhythm';
 import Topdown from './pages/Topdown';
 import Footer from './components/Footer';
+import AI_Page from './pages/AI_Page';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -23,12 +25,14 @@ root.render(
       <Navbar/>
       <main>
         <Routes>
-          <Route path="" element={<Home/>} />
+          <Route path="/" element={<Home/>} />
           <Route path='projects/' element={<Projects/>} />
           <Route path='about/' element={<About/>} />
+          <Route path='skills/' element={<SkillsPage/>} />
           <Route path='projects/rhythm/' element={<Rhythm/>} />
           <Route path='projects/topdown/' element={<Topdown/>} />
           <Route path='projects/photography' element={<Gallery/>} />
+          <Route path='projects/tensorflow' element={<AI_Page/>} />
           <Route path='*' element={<PageNotFound/>} />
         </Routes>
       </main>

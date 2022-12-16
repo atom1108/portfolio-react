@@ -28,6 +28,7 @@ export default function Navbar(){
     // Paths
     const homePageNav = ROOT_PATH;
     const aboutPageNav = ROOT_PATH+"about";
+    const skillsPageNav = ROOT_PATH+"skills";
     const projectsPageNav = ROOT_PATH+"projects";
 
     function toggleDownNav(e){
@@ -52,6 +53,7 @@ export default function Navbar(){
                     <ul>
                         <Navlink avtivePage={location.pathname} link={homePageNav} text="Home"/>
                         <Navlink avtivePage={location.pathname} link={projectsPageNav} text="Projects"/>
+                        <Navlink avtivePage={location.pathname} link={skillsPageNav} text="Skils"/>
                     </ul>
                 </div>
                 <div className="nav-right">
@@ -66,6 +68,7 @@ export default function Navbar(){
                 <div id="small-screen-nav" className="dropdown-nav">
                     <Navlink avtivePage={location.pathname} link={homePageNav} text="Home"/>
                     <Navlink avtivePage={location.pathname} link={projectsPageNav} text="Projects"/>
+                    <Navlink avtivePage={location.pathname} link={skillsPageNav} text="Skils"/>
                     <Navlink avtivePage={location.pathname} link={aboutPageNav} text="About"/>
                 </div>
                 <button onClick={toggleDownNav} name="Llama" className="nav-btn neon-text-white">&#9776;</button>
